@@ -18,19 +18,18 @@ class Calc():
              print("Please input an integer or a float")
              return 1
              
-    def add_known(self, card):
+    def enter(self, value):
          """ Function that adds the item into the dataset """
          text = open("write.txt", "a")
-         value = input("Write the number: ")
          ch = self.check(value)
          while (ch != 0):
-                value = input("Write the number: ")
+                value = input("Write the correct number: ")
                 ch = self.check(value) 
          value = float(value)
          text.writeline(value)
          text.close()
      
-    def count(self):
+    def getCount(self):
         """ Function to returns the number of items that have been added to the dataset """
         text = open("stat.txt", 'r')
         lines = text.readlines()
@@ -81,6 +80,7 @@ class Calc():
     
     @staticmethod
     def getCount():
+        """ 
         return Calc.total
     
     def __init__(self):
