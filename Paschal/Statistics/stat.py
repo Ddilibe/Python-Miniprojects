@@ -1,6 +1,6 @@
 class Calc():
     """
-        This class is a blueprint for the calculation of some basic statistical problems 
+        This class is a blueprint for the calculation of some basic statistical problems like mean, standard deviation, max input, min input and so on.
     """
 
     def __init__(self, param):
