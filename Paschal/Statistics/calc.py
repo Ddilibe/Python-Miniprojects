@@ -1,5 +1,5 @@
 from state import Calc
-from intro import Welcome, Info, EnterInfo
+from intro import Welcome, Info, EnterInfo, help
 import time
 
 
@@ -21,6 +21,8 @@ def confirm(x):
     elif x == "7":
         mon.getMin()
     elif x == "8":
+        mon.getHelp()
+    elif x == "9":
         we = 0
     else: 
         print("Incorrect input")
@@ -65,12 +67,13 @@ def start():
     """
     Welcome()
     Info()
+    help()
     work = input("\n What do you want to do?\n Tape a number lets get started already.\n Number: ")
-    while (work != "8"):
+    while (work != "9"):
         confirm(work)
         if (work != 8):
             work = input("Pls input a number: ")
-    print("Thanks for using this program.\nI would rreally appreciate it if you drop a star for me.")
+    print("Thanks for using this program.\nI would really appreciate it if you drop a star for me.")
     
     time.sleep(10)
 start()

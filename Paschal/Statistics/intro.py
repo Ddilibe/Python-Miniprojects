@@ -3,7 +3,11 @@ def Info():
         """
             Welcome to the statistics program
             These are the instructions. Pls follow them carefully and orderly
-            
+        """
+    )
+def help():
+    print(
+        """
             Press 1 to enter values to your dataset
             Press 2 to count the number of data in the dataset
             Press 3 to get the sum of the data in the dataset
@@ -11,7 +15,8 @@ def Info():
             Press 5 to get the standard deviation of all the data in the dataset
             Press 6 to get the maximum input in the dataset
             Press 7 to get the minimum input in the dataset
-            Press 8 to exit the program
+            Press 8 to present this help section again
+            Press 9 to exit the program
         """
     )
     

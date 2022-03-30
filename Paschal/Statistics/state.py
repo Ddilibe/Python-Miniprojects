@@ -1,6 +1,7 @@
 #!/bin/py Python 3
 
-import math
+import math, time
+from intro import help
 
 
 class Calc():
@@ -46,8 +47,11 @@ class Calc():
 
     def getMean(self):
         """ Function that returens the average of all the items in the dataset """
+        time.sleep(4)
         val = Calc.getSum(self)
+        time.sleep(4)
         count = Calc.getCount(self)
+        time.sleep(4)
         me = float(val/count)
         print("Therefore, calculating the mean, we can say that ", end="")
         print("The mean is ", me, "\n")
@@ -68,17 +72,22 @@ class Calc():
         
         
     def getStandardDeviation(self):
+        print("Calculating the Standard Deviation: ")
+        time.sleep(4)
         mean = Calc.getMean(self)
+        time.sleep(4)
         count = Calc.getCount(self)
+        time.sleep(4)
         x = 0
         y = len(Calc.dataset)
         for i in range(0, y):
             x += ((Calc.dataset[i] - mean) * (Calc.dataset[i] - mean))
-            print(x)
         answer = x/(count - 1)
         answer = math.sqrt(answer)
         print("The standard Deviation is ", answer, "\n")
     
+    def getHelp(self):
+        help()
     
     def __str__(self):
         info = " A blueprint for the calculation of a set of basic statistical functions "
