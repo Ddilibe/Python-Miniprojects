@@ -26,16 +26,22 @@ class Calc():
 
     def getMax(self):
         """ Method or functon to get the maximum value in the dataset """
-        x = max(Calc.dataset)
-        print("The maximum vale in the dataset is ", x, "\n")
-        return x 
+        if len(Calc.dataset) != 0:
+            x = max(Calc.dataset)
+            print("The maximum vale in the dataset is ", x, "\n")
+            return x
+        else: 
+            print("The dataset is empty")
     
 
     def getMin(self):
         """ Method or functon to get the minimum value in the dataset """
-        x = min(Calc.dataset)
-        print("The minimum vale in the dataset is ", x, "\n")
-        return x
+        if len(Calc.dataset) != 0:
+            x = min(Calc.dataset)
+            print("The minimum vale in the dataset is ", x, "\n")
+            return x
+        else: 
+            print("The dataset is empty")
 
 
     def getCount(self):
@@ -47,15 +53,18 @@ class Calc():
 
     def getMean(self):
         """ Function that returens the average of all the items in the dataset """
-        time.sleep(4)
-        val = Calc.getSum(self)
-        time.sleep(4)
-        count = Calc.getCount(self)
-        time.sleep(4)
-        me = float(val/count)
-        print("Therefore, calculating the mean, we can say that ", end="")
-        print("The mean is ", me, "\n")
-        return me
+        if len(Calc.dataset) != 0:
+            time.sleep(4)
+            val = Calc.getSum(self)
+            time.sleep(4)
+            count = Calc.getCount(self)
+            time.sleep(4)
+            me = float(val/count)
+            print("Therefore, calculating the mean, we can say that ", end="")
+            print("The mean is ", me, "\n")
+            return me
+        else:
+            print("The dataset is empty")
         
     
     def getSum(self):
@@ -73,18 +82,21 @@ class Calc():
         
     def getStandardDeviation(self):
         print("Calculating the Standard Deviation: ")
-        time.sleep(4)
-        mean = Calc.getMean(self)
-        time.sleep(4)
-        count = Calc.getCount(self)
-        time.sleep(4)
-        x = 0
-        y = len(Calc.dataset)
-        for i in range(0, y):
-            x += ((Calc.dataset[i] - mean) * (Calc.dataset[i] - mean))
-        answer = x/(count - 1)
-        answer = math.sqrt(answer)
-        print("The standard Deviation is ", answer, "\n")
+        if len(Calc.dataset) != 0:
+            time.sleep(4)
+            mean = Calc.getMean(self)
+            time.sleep(4)
+            count = Calc.getCount(self)
+            time.sleep(4)
+            x = 0
+            y = len(Calc.dataset)
+            for i in range(0, y):
+                x += ((Calc.dataset[i] - mean) * (Calc.dataset[i] - mean))
+            answer = x/(count - 1)
+            answer = math.sqrt(answer)
+            print("The standard Deviation is ", answer, "\n")
+        else:
+            print("The dataset is empty")
     
     def getHelp(self):
         help()
