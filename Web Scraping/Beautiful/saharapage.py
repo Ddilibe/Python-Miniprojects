@@ -1,37 +1,43 @@
 import requests 
 from bs4 import BeautifulSoup
 
-file = open('jaden.txt', 'r')
 
-def Scraping_multiple_websites(file):   
+def Scraping_multiple_websites():   
+    file = open('jaden.txt', 'r')
     num = 1
     for i in file:
-        response = requests.get(i)
-        soup = BeautifulSoup(response.content, 'html.parser')
-        title_write = "TITLE \n\n"
-        title = soup.find('p', {'class':'page-header-lead'})
-        title = title.string
-        image_write = "\n\nIMAGE sECTION\n\n"
-        image = soup.find('img', {'class':'media-element file-embedded'})
-        image = image['src']
-        text_write = "\n\nThe Note section of the news article\n\n"
-        texts = soup.find('div', {'class':'story-content'})
-        texts = texts.find('p')
         new_file = f"new_file{num}.txt"
         NewContentFile = open(new_file, 'w')
-        NewContentFile.writelines(title_write)
-        NewContentFile.writelines(title)
-        NewContentFile.writelines(image_write)
-        NewContentFile.writelines(image)
+        response = requests.get(i)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        title_write = "TITLE\n"
+        title = soup.find('h1', {'class':'mvp-post-title left entry-title'})
+        title = title.string
+        print(title)
+        if title not in ["None"] :
+                NewContentFile.writelines(title_write)
+                NewContentFile.writelines(title)
+        image_write = "IMAGE sECTION\n"
+        image = soup.find('div', {'id':'mvp-post-content'})
+        image = image.find('img')
+        if image != 'None':
+                image = image['src']
+                NewContentFile.writelines(image_write)
+                NewContentFile.writelines(image)
+        text_write = "The Note section of the ndews article\n"
+        texts = soup.find('div', {'id':'mvp-content-main'})
+        texts = texts.find_all('p')
         NewContentFile.writelines(text_write)
         for i in texts:
             i = i.strings
-            if (i != 'None'):
+            if i not in ["None", " Advertisement ", "Follow Us on Google News "]:
                 NewContentFile.writelines(i)
                 NewContentFile.writelines('\n')
         NewContentFile.close()
         num += 1
+        if num >= 10:
+                break
+    file.close()
 
-Scraping_multiple_websites(file)
 
-file.close()
+

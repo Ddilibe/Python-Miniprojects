@@ -1,0 +1,74 @@
+from error import BaseError
+from baser import BaseConvert
+
+
+
+class Octadecimal(BaseError, BaseConvert):
+    
+    def __init__(self,):
+        check = False
+        while check == False:
+            try:
+                self.biny = int(input("Input a octadecimal Number: ")) 
+                check = True
+            except ValueError:
+                print("That is not a number at all")
+                check = False
+        check = False
+        while (check == False) or not(0<self.option<4):
+            try:
+                self.option = int(input("Input your option: "))
+                if (0<self.option<4):
+                    check = True
+                else:
+                    print("Option not in the range")
+                    check = False
+            except ValueError:
+                print("This is not a number at all")
+                check = False
+        
+    def Confirm(self,):
+        if self.option == 1:
+            Octadecimal.octadecimal_Hexadecimal(self.biny)
+        if self.option == 2:
+            Octadecimal.octadecimal_binary(self.biny)
+        if self.option == 3:
+            Octadecimal.octadecimal_denary(self.biny)
+            
+    @classmethod
+    def confirm_octadecimal_to_denary(cls, biny):
+        biny = Octadecimal.convert_int_to_list(biny)
+        check = Octadecimal.error_octa(biny)
+        while check == False:
+            try:
+                biny = int(input("Pls, Input an octadecimal Number: "))
+                biny = Octadecimal.convert_int_to_list(biny)
+                check = Octadecimal.error_octa(biny)
+            except: 
+                print("That is not a octadecimal Number!")
+                check = False
+        ans = Octadecimal.convert_from_octadecimal_to_denary(biny)
+        return (ans, biny)
+
+    @classmethod
+    def octadecimal_denary(cls, biny):
+        solu = Octadecimal.confirm_octadecimal_to_denary(biny)
+        print("The octadecimal equivalent of ", "".join(solu[1]) , " in denary is ", solu[0] )
+     
+    @classmethod
+    def octadecimal_binary(cls, biny):
+        solu = Octadecimal.confirm_octadecimal_to_denary(biny)
+        ans = Octadecimal.convert_from_denary_to_binary(solu[0])
+        print("The octadecimal equivalent of ", "".join(solu[1]), "in binary is ", ans)
+
+    @classmethod
+    def octadecimal_Hexadecimal(cls, biny):
+        solu = Octadecimal.confirm_octadecimal_to_denary(biny)
+        ans = Octadecimal.convert_from_denary_to_hexadecimal(solu[0])
+        print("The octadecimal equivalent of ", "".join(solu[1]), "in hexadecimal is ", ans)
+        
+    
+
+mon = Octadecimal()
+mon.Confirm()
+
