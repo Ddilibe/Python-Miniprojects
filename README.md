@@ -1,5 +1,5 @@
 # Python Mini-Projects
-	Python is an amazimg programming language. While exploring the libraries, I decided to create a repository and document my progress. This is going to be Interesting
+Python is an amazimg programming language. While exploring the libraries, I decided to create a repository and document my progress. This is going to be Interesting
 
 ### Game 
 Every developer's dream has always been to create a game. Probably one of the main reasons why they ventured into this field. So this contains adventures in to the use of game creating python libraries which include pygames and the rest.
