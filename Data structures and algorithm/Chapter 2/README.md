@@ -5,10 +5,13 @@ The main actors in the object orirnted paradigm are called objects. Each object 
 While trying my hardest to grasp the knowledge surrounding the terminology "Object Oriented", I decided to at least attempt all the project exercises in this chapter. 
 
 ## Projects Undertaken And Their Details
-_______________________________________________________________________________________________________
-|Numbers       | Project Name         | Details                                                       | 
-|1             |        Polynimial.py | Created to find the derivative of a given polynomial equation |
-_______________________________________________________________________________________________________
+______________________________________________________________________________________________________________________________
+|Numbers       | Project Name         | Details                                                                              |
+------------------------------------------------------------------------------------------------------------------------------ 
+|1             |        Polynimial.py | Created to find the derivative of a given polynomial equation                        |
+------------------------------------------------------------------------------------------------------------------------------
+|2             |  alphafreq.py        | Program that outputs a barchart plot of alphabet frequencies from an inputed document|
+______________________________________________________________________________________________________________________________
 
 ### Things To Note
 - The Polynomial Project is not finshed 
