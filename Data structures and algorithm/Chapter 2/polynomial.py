@@ -38,12 +38,17 @@ class Polynomial:
     def creates_the_derivative(self):
         """ Returns the dervative of the equation Passed"""
         self.creating_equation_list()
+        print(Polynomial.equation_in_list)
         y, a, u, q, w = 0, '', -1, 0, ''
         for i in Polynomial.equation_in_list:
             final = []
+            print(i)
             for j in i:
+                print(j)
                 if j in ('+','-'):
                     w = j
+                elif (j == ''):
+                    continue
                 else:
                     try:
                         int(j)
@@ -54,6 +59,7 @@ class Polynomial:
                     break
             while True:
                 try:
+                    print(i[u])
                     int(i[u])
                     q += (q * 10) + int(i[u])
                     u -= 1
@@ -92,5 +98,5 @@ class Polynomial:
 
 if __name__ == '__main__':
     print("Just Testing the equation a unique way")
-    J = Polynomial('2x2 + 1')
+    J = Polynomial('2x2 + 1x')
     J.print_solution()
