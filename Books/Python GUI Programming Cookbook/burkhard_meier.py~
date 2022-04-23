@@ -7,6 +7,20 @@ win = tk.Tk()
 win.title("Python GUI")
 
 # Adding a Label
-ttk.label(win, text="A label").grid(column=0, row=0)
+aLabel = ttk.Label(win, text="A label")
+aLabel.grid(column=0, row=0)
+
+#Button click Event Callback Function
+def clickMe():
+    action.configure(text="** I have Been Clicked! **")
+    aLabel.configure(foreground='red')
+
+# Adding a button
+action = ttk.Button(win, text='Click Me!', command=clickMe)
+action.grid(column=1, row=0)
+
+# Adding a second button
+action1 = ttk.Button(win, text="This is what you see")
+action1.grid(column=0, row=20)
 
 win.mainloop()
