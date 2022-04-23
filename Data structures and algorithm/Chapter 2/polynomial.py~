@@ -20,7 +20,7 @@ class Polynomial:
 
     def __len__(self):
         """Returns the number of unknowns in a polynomial set """
-        return (len(equation_in_list) - 1)
+        return (len(Polynomial.equation_in_list) - 1)
 
     def creating_equation_list(self):
         """ Does not return anything. Creates the polynomial equation """
@@ -47,24 +47,26 @@ class Polynomial:
                 else:
                     try:
                         int(j)
-                        y = (y * 10) + int(j)
+                        y += (y * 10) + int(j)
                     except ValueError:
                         if j.upper() in Polynomial.alpha_list:
-                            a += a
+                            a += str(j)
                     break
             while True:
                 try:
-                    int(q)
-                    q = (q * 10) + int(i[u])
+                    int(i[u])
+                    q += (q * 10) + int(i[u])
                     u -= 1
                 except ValueError:
                     break
             if not(a == ''):
                 y *= q
                 q -= 1
-            if not((a == '') or (q < 1)):
+            if not((a == '') or (q > 1)):
+                #This is to allow coefficicent of a variable and that variable to be saved in the list
                 final.append(str(y) + a + str(q))
             elif q == 1:
+                # This is to permit entry into the list a value where the power the coefficient is 1
                 final.append(str(y) + a)
             elif q <= 0:
                 final.append(str(y))
@@ -79,7 +81,7 @@ class Polynomial:
     def get_solution(self):
         t = ""
         self.creates_the_derivative()
-        for i in solved_equation:
+        for i in Polynomial.solved_equation:
             for j in i:
                 t += str(" ") + str(j)
         return t
@@ -90,5 +92,5 @@ class Polynomial:
 
 if __name__ == '__main__':
     print("Just Testing the equation a unique way")
-    J = Polynomial('2x + 1')
+    J = Polynomial('2x2 + 1')
     J.print_solution()
