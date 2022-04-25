@@ -1,7 +1,7 @@
 
 #Imports
 import tkinter as tk
-from tkinter import ttk, scrolledtext
+from tkinter import ttk, scrolledtext, Menu
 
 # Creating an instance
 win = tk.Tk()
@@ -107,5 +107,27 @@ for child in labelsFrame.winfo_children():
 
 # Place cursor into name entry
 nameEntered.focus()
+
+# Fuction to exit the program
+def _quit():
+    win.quit()
+    win.destroy()
+    exit()
+
+# Creating a menu bar
+menuBar = Menu(monty)
+win.config(menu=menuBar)
+
+# Assigning a menu item to the menu bar
+fileMenu = Menu(menuBar, tearoff=0)
+fileMenu.add_command(label="New")
+fileMenu.add_separator()
+fileMenu.add_command(label="Exit", command=_quit)
+menuBar.add_cascade(label="File", menu=fileMenu)
+
+# Creating and assigning a menu item to the created menu bar
+helpMenu = Menu(menuBar, tearoff=0)
+helpMenu.add_command(label="About")
+menuBar.add_cascade(label="Help", menu=helpMenu)
 
 win.mainloop()
