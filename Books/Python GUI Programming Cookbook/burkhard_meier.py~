@@ -85,4 +85,16 @@ for col in range(3):
     curRad = tk.Radiobutton(win, text=colors[col], variable=radVar, value=col, command=radCall)
     curRad.grid(column=col, row=5, sticky=tk.W)
 
+# Create a container to hold labels
+labelsFrame = ttk.LabelFrame(win, text=" Labels in a Frame")
+labelsFrame.grid(column=0, row=7)
+
+# Place labels into the conatiners 
+ttk.Label(labelsFrame, text="Label1").grid(column=0, row=0)
+ttk.Label(labelsFrame, text="Label2").grid(column=1, row=0)
+ttk.Label(labelsFrame, text="Label3").grid(column=2, row=0)
+
+# Place cursor into name entry
+nameEntered.focus()
+
 win.mainloop()
