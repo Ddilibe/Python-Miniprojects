@@ -2,6 +2,8 @@
 #Imports 
 import tkinter as tk
 from tkinter import ttk, Menu, scrolledtext
+from tkinter import messagebox as mBox
+
 
 # Creating an instance
 win = tk.Tk()
@@ -144,6 +146,16 @@ nameEntered.focus()
 """ 
     This is the menu section
 """
+# Display a Message Box
+# Callback function
+
+def _msgBox():
+    #mBox.showinfo('Python Message Info Box',"A python GUI created using tkinter:\nThe year is 5015.")
+    #mBox.showwarning('Python Message Warning Box', 'A Python GUI created using tkinter:\nWarning:  There might be a bug in this code')
+    #mBox.showerror('Python Message Error Box', 'A Python GUI created using tkinter:\nError: Houston - we DO have a serious problem')
+    answer = mBox.askyesno("Python Message Dual Choice Box","Are you sure you really wish to do this?")
+    print(answer)
+
 # Fuction to exit the program
 def _quit():
     win.quit()
@@ -163,7 +175,7 @@ menuBar.add_cascade(label="File", menu=fileMenu)
 
 # Creating and assigning a menu item to the created menu bar
 helpMenu = Menu(menuBar, tearoff=0)
-helpMenu.add_command(label="About")
+helpMenu.add_command(label="About", command=_msgBox)
 menuBar.add_cascade(label="Help", menu=helpMenu)
 # Start GUI
 win.mainloop()
