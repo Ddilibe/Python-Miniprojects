@@ -155,8 +155,6 @@ def _msgBox():
     #mBox.showerror('Python Message Error Box', 'A Python GUI created using tkinter:\nError: Houston - we DO have a serious problem')
     answer = mBox.askyesno("Python Message Dual Choice Box","Are you sure you really wish to do this?")
     print(answer)
-    if answer == True:
-        _quit()
 
 # Fuction to exit the program
 def _quit():
