@@ -18,11 +18,14 @@ def calculate(*args):
 root = Tk()
 root.title("Feet to Meters")
 
+# This is the frame widget which holds the content of the user interface
 mainframe = ttk.Frame(root, padding="3 3 12 12")
 mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
-root.columnconfigure(0, weight=1)
+root.columnconfigure(0, weight=1) 
 root.rowconfigure(0, weight=1)
+#The columnconfigure and rowconfigure command tells it to expand to fill any other space if the window is resized
 
+#The input widget was created here. 
 feet = StringVar()
 feet_entry = ttk.Entry(mainframe, width=7, textvariable = feet)
 feet_entry.grid(column=2, row=1, sticky=(W, E))
