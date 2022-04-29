@@ -1,48 +1,37 @@
-from error import BaseError
-from baser import BaseConvert
+from Formular.error import BaseError
+from Formular.baser import BaseConvert
 
 
 
 class Octadecimal(BaseError, BaseConvert):
     
-    def __init__(self,):
-        check = False
-        while check == False:
-            try:
-                self.biny = int(input("Input a octadecimal Number: ")) 
-                self.biny = Octadecimal.convert_int_to_list(self.biny)
-                check = Octadecimal.error_octa(self.biny)
-                if check == False:
-                    print("Those are not octadecimal numbers")
-            except ValueError:
-                print("That is not a number at all")
-                check = False
-        self.option = 10001
-        while (check == False) or not(0<self.option<4):
-            try:
-                self.option = int(input("Input your option: "))
-                if (0<self.option<4):
-                    check = True
-                else:
-                    print("Option not in the range")
-                    check = False
-            except ValueError:
-                print("This is not a number at all")
-                check = False
+    def __init__(self, biny, num):
+        self.biny = biny
+        self._num = num
+
+    def start(self,):
+        try: 
+            self.biny = Octadecimal.convert_int_to_list(self.biny)
+            check = Octadecimal.error_octa(self.biny)
+            if check == False:
+                return "NOBIN" #Those are not binary numbers
+            else:
+                try:
+                    if (0<=self._num<3):
+                        return (self.Confirm())
+                    else:
+                        return "NORAN" #Option not in the range
+                except (ValueError, TypeError):
+                    return "NONUM" #This is not a number at all
+        except (ValueError, TypeError):
+            return "NONUM" #That's not a number at all
         
     def Confirm(self,):
         j = Octadecimal.convert_from_octadecimal_to_denary(self.biny)
-        if self.option == 1:
-            print("The octadecimal equivalent of ", self.biny,"in denary is",j)
-        if self.option == 2:
-           j = Octadecimal.convert_from_denary_to_binary(j)
-           print("The octadecimal equivalent of",self.biny,"in binary is",j)
-        if self.option == 3:
+        if self._num == 0:
+            pass
+        if self._num == 1:
+            j = Octadecimal.convert_from_denary_to_binary(j)
+        if self._num == 2:
             j = Octadecimal.convert_from_denary_to_hexadecimal(j)
-            print("The octadecimal equivalent of",self.biny,"in hexadecimal is",j)
-        
-    
-
-mon = Octadecimal()
-mon.Confirm()
-
+        return j

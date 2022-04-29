@@ -1,18 +1,16 @@
-from Formular.error import BaseError
 from Formular.baser import BaseConvert
+from Formular.error import BaseError
 
-
-
-class Binary(BaseError, BaseConvert):
+class Hexadecimal(BaseConvert, BaseError):
 
     def __init__(self, biny, num):
         self.biny = biny
         self._num = num
 
+
     def start(self,):
         try:
-            self.biny = Binary.convert_int_to_list(self.biny)
-            check = Binary.error_binary(self.biny)
+            check = Hexadecimal.error_hexa(self.biny)
             if check == False:
                 return "NOBIN" #Those are not binary numbers
             else:
@@ -21,18 +19,17 @@ class Binary(BaseError, BaseConvert):
                         return (self.confirm())
                     else:
                         return "NORAN" #Option not in the range
-                except (ValueError, TypeError):
+                except ValueError:
                     return "NONUM" #This is not a number at all
-        except (ValueError, TypeError):
+        except ValueError:
             return "NONUM" #That's not a number at all
 
-    def confirm(self, ):
-        j = Binary.convert_from_binary_to_denary(self.biny)
+    def confirm(self,):
+        j = Hexadecimal.convert_from_hexadecimal_to_denary(self.biny)
         if self._num == 0:
             pass
         if self._num == 1:
-            j = Binary.convert_from_denary_to_octadecimal(j)
+            j = Hexadecimal.convert_from_denary_to_binary(j)
         if self._num == 2:
-            j = Binary.convert_from_denary_to_hexadecimal(j)
+            j = Hexadecimal.convert_from_denary_to_octadecimal(j)
         return j
-    

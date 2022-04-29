@@ -3,35 +3,33 @@ from Formular.error import BaseError
 
 class Hexadecimal(BaseConvert, BaseError):
 
-    def __init__(self, ):
-        check = False
-        while check == False:
-            self.biny = str(input("Input the hexadecimal number: "))
+    def __init__(self, biny, num):
+        self.biny = biny
+        self._num = num
+
+
+    def start(self,):
+        try:
             check = Hexadecimal.error_hexa(self.biny)
-        check = False
-        while check == False:
-            try:
-                self.option = int(input("Input your option: "))
-                if (0 < self.option < 4):
-                    check = True
-                else:
-                    print("Option not in range")
-                    check = False
-            except ValueError:
-                print("That is not a number at all")
-                check = False
+            if check == False:
+                return "NOBIN" #Those are not binary numbers
+            else:
+                try:
+                    if (0<=self._num<3):
+                        return (self.confirm())
+                    else:
+                        return "NORAN" #Option not in the range
+                except (ValueError, TypeError):
+                    return "NONUM" #This is not a number at all
+        except (ValueError, TypeError):
+            return "NONUM" #That's not a number at all
 
     def confirm(self,):
         j = Hexadecimal.convert_from_hexadecimal_to_denary(self.biny)
-        if self.option == 1:
-            print("The hexadecimal equivalent of ", self.biny," in denary is ", j)
-        if self.option == 2:
+        if self._num == 0:
+            pass
+        if self._num == 1:
             j = Hexadecimal.convert_from_denary_to_binary(j)
-            print("The hexadecimal equivalent of ", self.biny,"in binary is",j)
-        if self.option == 3:
+        if self._num == 2:
             j = Hexadecimal.convert_from_denary_to_octadecimal(j)
-            print("The hexadecimal equivalent of ", self.biny,"in octadecimal is",j)
-
-mon = Hexadecimal()
-mon.confirm()
-
+        return j

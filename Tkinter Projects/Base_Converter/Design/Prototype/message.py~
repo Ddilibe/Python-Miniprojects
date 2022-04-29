@@ -11,3 +11,6 @@ class DisplayMessages:
 
     def warning(show_warning):
         mBox.showwarning(f"{show_warning} Warning",f"Incorrect Input\nPlease enter a {show_warning} number")
+
+    def Cwarning(bon,card):
+        mBox.showwarning(f"{bon} Warning",f"{card}")

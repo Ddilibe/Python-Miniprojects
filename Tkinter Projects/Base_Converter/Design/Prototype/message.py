@@ -14,3 +14,6 @@ class DisplayMessages:
 
     def Cwarning(bon,card):
         mBox.showwarning(f"{bon} Warning",f"{card}")
+
+    def Cinfo(name, another_name):
+        mBox.showinfo(name,another_name)

@@ -25,7 +25,7 @@ class BaseError():
 
     @classmethod
     def error_denary(cls, g):
-        g = list()
+        g = list(str(g))
         while True:
             for i in g:
                 if int(i) in BaseError.den:
