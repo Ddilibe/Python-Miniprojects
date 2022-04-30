@@ -5,7 +5,7 @@
 
 import tkinter as tk
 from tkinter import ttk, Menu
-from Design.Prototype.message import DisplayMessages
+from message import DisplayMessages
 
 class BaseMenu(tk.Menu):
     """
@@ -23,6 +23,7 @@ class BaseMenu(tk.Menu):
         self._filemenu.add_command(label="Intro", command=self._intro)
         self._filemenu.add_command(label="Exit", command=self._quit)
         self.add_cascade(label="File", menu=self._filemenu)
+        
 
         
     def _quit(self,):
@@ -31,5 +32,5 @@ class BaseMenu(tk.Menu):
         self.destroy()
         exit()
 
-    def _intro(self):
-        DisplayMessages.Cinfo(self._first_info,self._second_info)
+    def _intro(self,):
+        DisplayMessages.Cinfo(self._first_info, self._second_info)

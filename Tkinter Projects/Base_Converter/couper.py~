@@ -24,6 +24,10 @@ class Converter(tk.Tk):
         self.title("Base Converter")
         #self.config(menu = BaseMenu())
         self.menudif()
+        self.NoteBook(self)
+        self.tab1 = BinaryTabView(self)
+        self.Notebook.add(self.tab1, Label="Binary")
+
     
     def _quit(self,):
         """ Command to sliently close the tkinter program """
@@ -46,6 +50,11 @@ class Converter(tk.Tk):
 
 if __name__ == '__main__':
     root = tk.Tk()
-    BinaryTabView(roo)
+    root.title("Converter")
+    tabControl = ttk.Notebook(root)
+    tab1 = BinaryTabView(root)
+    tab2 = BinaryTabView(root)
+    tabControl.add(tab1, text="Binary")
+    tabControl.add(tab1, text="Hexadecimal")
     # This place would include the binary, denary, octadecimal and hexadecimal value converters
     root.mainloop()
