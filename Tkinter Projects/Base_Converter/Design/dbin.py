@@ -16,4 +16,8 @@ class BinaryTabView(TabView):
         Initializing the different instances of the TabView
         """
         super().__init__(tabName, "Binary Converter")
-        self._option = ['Denary','Octadecimal','Hexadecimal']
+        self._dict = {
+                "Denary":0,
+                "Octadecimal":1,
+                "Hexadecimal":2,
+                }

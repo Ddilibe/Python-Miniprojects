@@ -18,5 +18,9 @@ class DenaryTabView(TabView):
         Initiailzinf the instance of the imported tabview
         """
         super().__init__(Parent, "Denary Converter")
-        self._option = ["Binary", "Hexadecimal","Octadecimal"]
+        self._dict = {
+                "Binary":0,
+                "Hexadecimal":2,
+                "Octadecimal":1,
+                }
 

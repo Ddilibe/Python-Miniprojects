@@ -8,7 +8,7 @@ from tkinter import messagebox as mBox
 
 # Creating an instance
 win = tk.Tk()
-win.withdraw()
+
 
 # Add a title
 win.title("Python GUI")

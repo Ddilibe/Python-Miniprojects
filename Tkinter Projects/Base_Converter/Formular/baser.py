@@ -8,15 +8,15 @@ class BaseConvert():
     """
 
     @classmethod
-    def convert_int_to_list(cls, j):
+    def convert_int_to_list(cls,j):
         """
             converts all input into a list
         """
         w = []
         d = ''
-        while j != 0:
-            w.append(str(j % 10))
-            j = int( j /10)
+        while int(j) != 0:
+            w.append(str(int(j) % 10))
+            j = int( j )/10
         w.reverse()
         w = ''.join(w)
         return w
@@ -81,8 +81,8 @@ class BaseConvert():
         """
         w = []
         while j != 0:
-            w.append(j % 2) 
-            j = int(j / 2)
+            w.append(int(j) % 2) 
+            j = int(int(j) / 2)
         w.reverse()
         d = ''
         for i in w:
@@ -97,8 +97,8 @@ class BaseConvert():
         """
         w = []
         while j != 0:
-            w.append(j % 8)
-            j = int(j / 8)
+            w.append(int(j) % 8)
+            j = int(int(j) / 8)
         w.reverse()
         d = ''
         for i in w:
@@ -112,9 +112,9 @@ class BaseConvert():
             Converts from denary to hexadecimal
         """
         w = []
-        while j != 0:
-            e = (j % 16)
-            j = int(j / 16)
+        while int(j) != 0:
+            e = (int(j) % 16)
+            j = int(int(j) / 16)
             if e == 10:
                 w.append('A')
             elif e == 11:

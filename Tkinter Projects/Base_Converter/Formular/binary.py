@@ -11,7 +11,7 @@ class Binary(BaseError, BaseConvert):
 
     def start(self,):
         try:
-            self.biny = Binary.convert_int_to_list(self.biny)
+            self.biny = Binary.convert_int_to_list(str(self.biny))
             check = Binary.error_binary(self.biny)
             if check == False:
                 return "NOBIN" #Those are not binary numbers
@@ -23,7 +23,7 @@ class Binary(BaseError, BaseConvert):
                         return "NORAN" #Option not in the range
                 except (ValueError, TypeError):
                     return "NONUM" #This is not a number at all
-        except (ValueError, TypeError):
+        except(ValueError):
             return "NONUM" #That's not a number at all
 
     def confirm(self, ):

@@ -25,6 +25,7 @@ class BaseError():
 
     @classmethod
     def error_denary(cls, g):
+        pop = True
         g = list()
         while True:
             for i in g:

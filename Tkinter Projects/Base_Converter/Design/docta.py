@@ -18,4 +18,8 @@ class OctadecimalTabView(TabView):
         Initializing the parent super class TabView
         """
         super().__init__(Parent, "Octadecimal Converter")
-        self._option = ['Denary','Binary','Hexadecimal']
+        self._dict = {
+                'Denary':0,
+                'Binary':1,
+                'Hexadecimal':2,
+                }

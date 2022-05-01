@@ -22,6 +22,7 @@ class BaseMenu(tk.Menu):
         self._filemenu = Menu(self, tearoff=0)
         self._filemenu.add_command(label="Intro", command=self._intro)
         self._filemenu.add_command(label="Exit", command=self._quit)
+        self._filemenu.add_command(label="Creator", command=self._creator)
         self.add_cascade(label="File", menu=self._filemenu)
 
         
@@ -33,3 +34,6 @@ class BaseMenu(tk.Menu):
 
     def _intro(self):
         DisplayMessages.Cinfo(self._first_info,self._second_info)
+
+    def _creator(self):
+        DisplayMessages.Cinfo("Base Converter","This was created by Mangino")
