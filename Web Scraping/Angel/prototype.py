@@ -1,8 +1,8 @@
 import requests
-from abc import abstractmethod
+from abc import abstractmethod, ABCMeta
 from bs4 import BeautifulSoup
 
-class Prototype:
+class Prototype():
 	"""
 		This class is specifically for design a prototyoe for designing the web scraping tool used to build angel's media
 	"""

@@ -100,5 +100,4 @@ class Assignment:
 			print(f"{i}		: 	{r}")
 
 if __name__ == "__main__":
-	w = 0
 	Assignment()
