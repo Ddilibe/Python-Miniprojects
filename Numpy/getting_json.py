@@ -174,3 +174,33 @@ file.close()
 """ 
 	That is all from the Javascript Object Notation
 """
+tam = {}
+lo = ["id","name","symbol","slug","cmc_rank","num_market_pairs","circulating_supply","total_supply","max_supply","last_updated","date_added","tags","platform","self_reported_circulating_supply","self_reported_market_cap","quote"]
+for i in lo:
+	tam[i] = []
+
+for i in data.get('data'): 
+	for r in range(len(i)): 
+		tam[lo[r]].append(i.get(lo[r]))
+
+
+for y in lo:
+	if y == ('quote'):
+		continue
+	if y == ('tags'):
+		continue
+	if len(y) > 4:
+		y = list(y)
+		y = y[0:4]
+		y = ''.join(y)
+		print(f"{y}		", end="")
+print("")
+for i in range(0,10):
+	for y in lo:
+		if y == ('quote'):
+			continue
+		if y == ('tags'):
+			continue
+		r = tam.get(y)
+		print(f"{r[i]}	", end="")
+	print("")

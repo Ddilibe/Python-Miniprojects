@@ -6,7 +6,7 @@ class Prototype():
 	"""
 		This class is specifically for design a prototyoe for designing the web scraping tool used to build angel's media
 	"""
-	list_developed = [] #List of websites developed
+	list_developed = [] 
 	self_generated_items = []
 	def __init__(self, website, parenttag, tag, title):
 		""" 
@@ -21,9 +21,10 @@ class Prototype():
 		self._website = website
 		self._response = requests.get(self._website)
 		self._soup = BeautifulSoup(self._response.content, "html.parser")
-		self._reason = self._soup.find(tag)
+		self._reason = self._soup.find_all(parenttag,{tag:title})
 		# Parsing through the website to get a set of links to a tag
 		Prototype.list_developed = [i for i in self._reason]
+
 		self.generate_things()
 
 	@abstractmethod
