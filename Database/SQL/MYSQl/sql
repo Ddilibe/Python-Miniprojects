@@ -1,0 +1,44 @@
+-- Questions
+
+-- Create database with the following schema
+
+-- customer(customerID, customerName, customerAddress)
+-- order(orderID, orderDate, customerID)
+-- orderItem(orderID, itemID, itemQuantity)
+-- item(itemID, itemName)
+
+-- You may make any assumptions you like about data types.
+-- Test your statements in MySQL and view the resulting tables using SHOW and DESCRIBE
+
+DROP DATABASE IF EXISTS order;
+
+CREATE DATABASE order;
+
+USE order;
+
+CREATE TABLE IF NOT EXISTS customer
+(
+	customerID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	customerName VARCHAR(40),
+	customerAddress VARCHAR(200)
+);
+
+CREATE TABLE order
+(
+	orderID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	orderDate DATE,
+	customerID INT NOT NULL REFERENCEs customer(customerID)
+);
+
+CREATE TABLE item
+(
+	itemID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	itemName VARCHAR(300)
+)
+
+CREATE TABLE orderItem
+(
+	orderID INT NOT NULL REFERENCES order(orderID),
+	itemID INT NOT NULL REFERENCES item(itemID),
+	itemQuality ENUM('PERFECT', 'GOOD', 'BAD', 'WORST')
+);

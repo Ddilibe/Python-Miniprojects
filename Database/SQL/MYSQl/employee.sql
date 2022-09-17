@@ -25,7 +25,14 @@ CREATE TABLE client
 	address VARCHAR(100),
 	contactPerson VARCHAR(80),
 	contactNumber CHAR(12)
-)
+);
+
+CREATE TABLE employeeSkills
+(
+	employeeID INT NOT NULL REFERENCES employee(employeeID),
+	skill VARCHAR(15) NOT NULL,
+	PRIMARY KEY (employeeID, skill)
+);
 
 CREATE TABLE assignment
 (
