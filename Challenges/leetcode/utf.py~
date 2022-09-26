@@ -1,0 +1,44 @@
+class Solution:
+    def validUtf8(self, data: List[int]) -> bool:
+        if not data:
+            return False
+        num = self.convert_to_8_bit(self.remove_0b(bin(data[0])))
+        print(num)
+        num = self.count_ones(num)
+        print(num)
+        truth_table = []
+        for i in range(len(data)):
+            man = self.convert_to_8_bit(self.remove_0b(bin(data[i])))
+            print(man)
+            if man[0] == '1':
+                truth_table.append(True)
+            elif (man[0] == '1') and (len(data)==1):
+                return False
+            else:
+                truth_table.append(False)
+        print(num, truth_table)
+        if truth_table.count(True) == num:
+            return True
+        return False
+            
+    
+    def convert_to_8_bit(self, man:int) -> list:
+        man = list(man)
+        while len(man)<8:
+            man.insert(0, '0')
+        return man
+    
+    def remove_0b(self, man:int) -> list:
+        man = list(man)
+        for i in range(2):
+            man.remove(man[0])
+        return man
+    
+    def count_ones(self, man:int) -> int:
+        w = 0
+        for i in man:
+            if i == '0':
+                break
+            w += 1
+        return w
+            
